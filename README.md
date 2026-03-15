@@ -50,7 +50,7 @@ Every topic is taught with:
 | 🔵 **05** | [Networking](./stage-05_networking/) | VPC, Subnets, Route 53, CloudFront, NAT, Security Groups | Intermediate |
 | 🔵 **06** | [Identity & Security](./stage-06_security/) | IAM, KMS, Cognito, WAF, GuardDuty, Security Hub | Intermediate |
 | 🔵 **07** | [Databases](./stage-07_databases/) | RDS, Aurora, DynamoDB, ElastiCache | Intermediate |
-| 🔴 **08** | [Monitoring & Observability](./stage-08_monitoring/) | CloudWatch, CloudTrail, X-Ray, EventBridge | Intermediate |
+| 🔴 **08** | [Monitoring & Observability](./stage-08_monitoring/) | CloudWatch, CloudTrail, X-Ray, OpenTelemetry, ADOT | Intermediate |
 | 🔴 **09** | [Infrastructure as Code](./stage-09_iac/) | CloudFormation, CDK, Terraform | Advanced |
 | 🔴 **10** | [Containers](./stage-10_containers/) | ECS, EKS, Fargate, ECR, Kubernetes | Advanced |
 | 🟣 **11** | [Serverless](./stage-11_serverless/) | Lambda, API Gateway, AppSync, SQS/SNS, EventBridge, Step Functions | Advanced |
@@ -61,7 +61,7 @@ Every topic is taught with:
 | 🤖 **16** | [AI & Machine Learning](./stage-16_ai_ml/) | Bedrock, Agents, RAG, SageMaker, Rekognition, Q | Expert |
 | 🏆 **99** | [Interview Master](./stage-99_interview_master/README.md) · [Scenarios](./stage-99_interview_master/scenarios.md) | SAA-C03, DVA-C02, SAP-C02, Scenario Q&A | All levels |
 
-**Total: 41 learning files across 16 stages**
+**Total: 43 learning files across 16 stages**
 
 </div>
 
@@ -134,6 +134,7 @@ Every topic is taught with:
 | ![Terraform](https://img.shields.io/badge/Terraform-CDK-7B42BC?style=flat-square&logo=terraform) | **CDK + Terraform** | High-level IaC: Python CDK, HCL state mgmt | [cdk_terraform.md](./stage-09_iac/cdk_terraform.md) |
 | ![Redshift](https://img.shields.io/badge/Redshift-Data_Warehouse-8C4FFF?style=flat-square&logo=amazon-aws) | **Redshift** | Petabyte-scale columnar data warehouse | [athena_glue_redshift.md](./stage-12_data_analytics/athena_glue_redshift.md) |
 | ![EventBridge](https://img.shields.io/badge/EventBridge-Event_Bus-FF9900?style=flat-square&logo=amazon-aws) | **EventBridge** | Route AWS service events to any target | [sqs_sns_eventbridge.md](./stage-11_serverless/sqs_sns_eventbridge.md) |
+| ![OTEL](https://img.shields.io/badge/OpenTelemetry-ADOT-527FFF?style=flat-square&logo=opentelemetry) | **OpenTelemetry (ADOT)** | Distributed traces, metrics, logs — vendor-neutral | [otel.md](./stage-08_monitoring/otel.md) |
 
 **Goal:** Build an event-driven microservices system with full observability and automated rollbacks.
 
@@ -217,9 +218,10 @@ Every topic is taught with:
 | 3 | [SQS, SNS & EventBridge](./stage-11_serverless/sqs_sns_eventbridge.md) | Async decoupling, fan-out, event routing |
 | 4 | [Step Functions](./stage-11_serverless/step_functions.md) | Serverless workflow orchestration |
 | 5 | [WAF, GuardDuty & Security](./stage-06_security/waf_shield_guardduty.md) | KMS, Secrets Manager, WAF, threat detection |
-| 6 | [High Availability Patterns](./stage-14_architecture/high_availability.md) | Multi-AZ, Multi-Region, DR strategies |
-| 7 | [Well-Architected 6 Pillars](./stage-14_architecture/well_architected.md) | OpEx, Security, Reliability, Performance, Cost, Sustainability |
-| 8 | [Disaster Recovery](./stage-14_architecture/disaster_recovery.md) | RTO/RPO, AWS Backup, FIS chaos engineering |
+| 6 | [OpenTelemetry on AWS](./stage-08_monitoring/otel.md) | Distributed tracing, ADOT, ECS/EKS/Lambda instrumentation |
+| 7 | [High Availability Patterns](./stage-14_architecture/high_availability.md) | Multi-AZ, Multi-Region, DR strategies |
+| 8 | [Well-Architected 6 Pillars](./stage-14_architecture/well_architected.md) | OpEx, Security, Reliability, Performance, Cost, Sustainability |
+| 9 | [Disaster Recovery](./stage-14_architecture/disaster_recovery.md) | RTO/RPO, AWS Backup, FIS chaos engineering |
 
 **Prerequisite:** Cloud Practitioner path.
 
@@ -313,6 +315,7 @@ Every topic is taught with:
 | File | Topic | Key Concepts |
 |------|-------|-------------|
 | [cloudwatch.md](./stage-08_monitoring/cloudwatch.md) | CloudWatch | Metrics · Logs · Alarms · Dashboards · Log Insights · CloudTrail · X-Ray |
+| [otel.md](./stage-08_monitoring/otel.md) | OpenTelemetry on AWS | ADOT · OTEL SDK · ECS sidecar · EKS DaemonSet · Lambda Layer · X-Ray · CloudWatch EMF |
 | [cloudformation.md](./stage-09_iac/cloudformation.md) | CloudFormation | Templates · Stacks · Change Sets · Drift detection · Intrinsic functions |
 | [cdk_terraform.md](./stage-09_iac/cdk_terraform.md) | CDK & Terraform | L2/L3 constructs · Python CDK · HCL · Remote state · Plan vs Apply |
 | [ecs.md](./stage-10_containers/ecs.md) | ECS — Elastic Container Service | Task Defs · Services · Fargate · Blue/Green · ECR · Service Connect |
@@ -416,6 +419,7 @@ Every topic is taught with:
 | Threat detection | GuardDuty | ML-based, CloudTrail + VPC flow + DNS logs |
 | Repeatable infrastructure | CloudFormation / CDK | Templates → reproducible stacks |
 | Manage metrics + alerts | CloudWatch | Dashboards, alarms, Log Insights |
+| Distributed tracing (vendor-neutral) | OpenTelemetry (ADOT) | One SDK → X-Ray + CloudWatch + any backend |
 | CI/CD pipeline | CodePipeline + CodeBuild | Source → Build → Test → Deploy |
 | **Call foundation models (AI)** | **Bedrock** | **Claude, Llama, Titan — pay per token** |
 | **Build AI agents** | **Bedrock Agents** | **ReAct loop, Lambda tools, multi-turn** |
@@ -472,7 +476,7 @@ Every topic is taught with:
 
 **Go serverless** → [Lambda](./stage-11_serverless/lambda.md) → [API Gateway](./stage-11_serverless/api_gateway.md) → [DynamoDB](./stage-07_databases/dynamodb.md) → [SQS/SNS](./stage-11_serverless/sqs_sns_eventbridge.md)
 
-**Build with containers** → [ECS](./stage-10_containers/ecs.md) → [EKS](./stage-10_containers/eks.md) → [CI/CD](./stage-13_devops_cicd/cicd_pipeline.md)
+**Build with containers** → [ECS](./stage-10_containers/ecs.md) → [EKS](./stage-10_containers/eks.md) → [OpenTelemetry](./stage-08_monitoring/otel.md) → [CI/CD](./stage-13_devops_cicd/cicd_pipeline.md)
 
 **Build AI features** → [Bedrock](./stage-16_ai_ml/bedrock.md) → [Agents](./stage-16_ai_ml/bedrock_agents.md) → [Knowledge Bases](./stage-16_ai_ml/bedrock_knowledge_bases.md) → [Guardrails](./stage-16_ai_ml/guardrails_amazon_q.md)
 
@@ -482,6 +486,6 @@ Every topic is taught with:
 
 <div align="center">
 
-*AWS Complete Mastery · Story-Based · Visual · Console-Accurate · Beginner to Expert · 16 Stages · 42 Files*
+*AWS Complete Mastery · Story-Based · Visual · Console-Accurate · Beginner to Expert · 16 Stages · 43 Files*
 
 </div>

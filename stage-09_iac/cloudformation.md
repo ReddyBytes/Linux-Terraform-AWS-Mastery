@@ -364,6 +364,6 @@ CloudFormation uses YAML/JSON templates — verbose but accessible without progr
 
 **[🏠 Back to README](../README.md)**
 
-**Prev:** [← CloudWatch & Observability](../stage-08_monitoring/cloudwatch.md) &nbsp;|&nbsp; **Next:** [CDK & Terraform →](../stage-09_iac/cdk_terraform.md)
+**Prev:** [← OpenTelemetry on AWS](../stage-08_monitoring/otel.md) &nbsp;|&nbsp; **Next:** [CDK & Terraform →](../stage-09_iac/cdk_terraform.md)
 
 **Related Topics:** [CDK & Terraform](../stage-09_iac/cdk_terraform.md) · [EC2](../stage-03_compute/ec2.md) · [ECS](../stage-10_containers/ecs.md) · [CI/CD Pipeline](../stage-13_devops_cicd/cicd_pipeline.md)
