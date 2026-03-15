@@ -1,95 +1,114 @@
-<svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" width="900" height="200">
+<svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" width="900" height="240">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d0c0a"/>
-      <stop offset="50%" style="stop-color:#1a1208"/>
-      <stop offset="100%" style="stop-color:#0d0c0a"/>
+      <stop offset="0%"   style="stop-color:#060f0a"/>
+      <stop offset="50%"  style="stop-color:#0d1a10"/>
+      <stop offset="100%" style="stop-color:#060f0a"/>
     </linearGradient>
-    <linearGradient id="orangeTeal" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#FF9900"/>
-      <stop offset="50%" style="stop-color:#FFB84D"/>
-      <stop offset="100%" style="stop-color:#00C7B1"/>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#22C55E"/>
+      <stop offset="30%"  style="stop-color:#F59E0B"/>
+      <stop offset="60%"  style="stop-color:#F97316"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
     </linearGradient>
-    <linearGradient id="tealOrange" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00C7B1"/>
-      <stop offset="100%" style="stop-color:#FF9900"/>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#22C55E;stop-opacity:0"/>
+      <stop offset="25%"  style="stop-color:#F59E0B"/>
+      <stop offset="50%"  style="stop-color:#F97316"/>
+      <stop offset="75%"  style="stop-color:#7C3AED"/>
+      <stop offset="100%" style="stop-color:#22C55E;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#0d1f12"/>
+      <stop offset="100%" style="stop-color:#060f0a"/>
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <filter id="softglow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="900" height="200" fill="url(#bg)"/>
+  <rect width="900" height="240" fill="url(#bg)"/>
 
   <!-- Subtle grid lines -->
-  <line x1="0" y1="40" x2="900" y2="40" stroke="#FF9900" stroke-width="0.2" stroke-dasharray="4,8" opacity="0.15"/>
-  <line x1="0" y1="80" x2="900" y2="80" stroke="#FF9900" stroke-width="0.2" stroke-dasharray="4,8" opacity="0.15"/>
-  <line x1="0" y1="120" x2="900" y2="120" stroke="#FF9900" stroke-width="0.2" stroke-dasharray="4,8" opacity="0.15"/>
-  <line x1="0" y1="160" x2="900" y2="160" stroke="#FF9900" stroke-width="0.2" stroke-dasharray="4,8" opacity="0.15"/>
+  <line x1="0" y1="40"  x2="900" y2="40"  stroke="#22C55E" stroke-width="0.2" stroke-dasharray="4,10" opacity="0.12"/>
+  <line x1="0" y1="80"  x2="900" y2="80"  stroke="#22C55E" stroke-width="0.2" stroke-dasharray="4,10" opacity="0.12"/>
+  <line x1="0" y1="120" x2="900" y2="120" stroke="#14B8A6" stroke-width="0.2" stroke-dasharray="4,10" opacity="0.12"/>
+  <line x1="0" y1="160" x2="900" y2="160" stroke="#22C55E" stroke-width="0.2" stroke-dasharray="4,10" opacity="0.12"/>
+  <line x1="0" y1="200" x2="900" y2="200" stroke="#22C55E" stroke-width="0.2" stroke-dasharray="4,10" opacity="0.08"/>
 
   <!-- Pipeline connector line -->
-  <line x1="90" y1="148" x2="810" y2="148" stroke="url(#orangeTeal)" stroke-width="1.5" opacity="0.5"/>
+  <line x1="60" y1="163" x2="840" y2="163" stroke="url(#lineGrad)" stroke-width="1.5" opacity="0.6"/>
 
-  <!-- Service nodes -->
-  <!-- IAM -->
-  <circle cx="120" cy="148" r="26" fill="#1a1208" stroke="#FF9900" stroke-width="1.5" filter="url(#glow)"/>
-  <text x="120" y="143" font-family="monospace" font-size="9" fill="#FF9900" text-anchor="middle" font-weight="bold">IAM</text>
-  <text x="120" y="155" font-family="monospace" font-size="7" fill="#FFB84D" text-anchor="middle">Security</text>
+  <!-- Arrow connectors between nodes -->
+  <line x1="160" y1="163" x2="195" y2="163" stroke="#F59E0B" stroke-width="1.5" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="195,159 203,163 195,167" fill="#F59E0B" opacity="0.85"/>
 
-  <!-- EC2 -->
-  <circle cx="230" cy="148" r="26" fill="#1a1208" stroke="#FF9900" stroke-width="1.5" filter="url(#glow)"/>
-  <text x="230" y="143" font-family="monospace" font-size="9" fill="#FF9900" text-anchor="middle" font-weight="bold">EC2</text>
-  <text x="230" y="155" font-family="monospace" font-size="7" fill="#FFB84D" text-anchor="middle">Compute</text>
+  <line x1="345" y1="163" x2="380" y2="163" stroke="#F97316" stroke-width="1.5" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.45s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="380,159 388,163 380,167" fill="#F97316" opacity="0.85"/>
 
-  <!-- VPC -->
-  <circle cx="340" cy="148" r="26" fill="#1a1208" stroke="#FFB84D" stroke-width="1.5" filter="url(#glow)"/>
-  <text x="340" y="143" font-family="monospace" font-size="9" fill="#FFB84D" text-anchor="middle" font-weight="bold">VPC</text>
-  <text x="340" y="155" font-family="monospace" font-size="7" fill="#FF9900" text-anchor="middle">Network</text>
+  <line x1="530" y1="163" x2="565" y2="163" stroke="#7C3AED" stroke-width="1.5" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.9s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="565,159 573,163 565,167" fill="#7C3AED" opacity="0.85"/>
 
-  <!-- S3 -->
-  <circle cx="450" cy="148" r="26" fill="#1a1208" stroke="#00D4BD" stroke-width="1.5" filter="url(#glow)"/>
-  <text x="450" y="143" font-family="monospace" font-size="9" fill="#00D4BD" text-anchor="middle" font-weight="bold">S3</text>
-  <text x="450" y="155" font-family="monospace" font-size="7" fill="#00C7B1" text-anchor="middle">Storage</text>
+  <!-- Node 1: Linux (green) -->
+  <rect x="60" y="143" width="100" height="40" rx="7" fill="url(#nodeGrad)" stroke="#22C55E" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="110" y="159" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#22C55E" font-weight="bold" letter-spacing="0.5">🐧 Linux</text>
+  <text x="110" y="174" text-anchor="middle" font-family="'Courier New', monospace" font-size="8"  fill="#4ADE80" letter-spacing="0.5">Foundation</text>
 
-  <!-- Lambda -->
-  <circle cx="560" cy="148" r="26" fill="#1a1208" stroke="#00C7B1" stroke-width="1.5" filter="url(#glow)"/>
-  <text x="560" y="143" font-family="monospace" font-size="9" fill="#00C7B1" text-anchor="middle" font-weight="bold">λ</text>
-  <text x="560" y="155" font-family="monospace" font-size="7" fill="#00C7B1" text-anchor="middle">Serverless</text>
+  <!-- Node 2: Bash (amber) -->
+  <rect x="203" y="143" width="143" height="40" rx="7" fill="url(#nodeGrad)" stroke="#F59E0B" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="274" y="159" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#F59E0B" font-weight="bold" letter-spacing="0.5">$ Bash</text>
+  <text x="274" y="174" text-anchor="middle" font-family="'Courier New', monospace" font-size="8"  fill="#FCD34D" letter-spacing="0.5">Scripting</text>
 
-  <!-- RDS -->
-  <circle cx="670" cy="148" r="26" fill="#1a1208" stroke="#00C7B1" stroke-width="1.5" filter="url(#glow)"/>
-  <text x="670" y="143" font-family="monospace" font-size="9" fill="#00C7B1" text-anchor="middle" font-weight="bold">RDS</text>
-  <text x="670" y="155" font-family="monospace" font-size="7" fill="#00C7B1" text-anchor="middle">Database</text>
+  <!-- Node 3: AWS (orange) -->
+  <rect x="388" y="143" width="143" height="40" rx="7" fill="url(#nodeGrad)" stroke="#F97316" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="459" y="159" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#F97316" font-weight="bold" letter-spacing="0.5">☁️ AWS</text>
+  <text x="459" y="174" text-anchor="middle" font-family="'Courier New', monospace" font-size="8"  fill="#FB923C" letter-spacing="0.5">Cloud</text>
 
-  <!-- CloudWatch -->
-  <circle cx="780" cy="148" r="26" fill="#1a1208" stroke="#FF9900" stroke-width="1.5" filter="url(#glow)"/>
-  <text x="780" y="143" font-family="monospace" font-size="9" fill="#FF9900" text-anchor="middle" font-weight="bold">CW</text>
-  <text x="780" y="155" font-family="monospace" font-size="7" fill="#FFB84D" text-anchor="middle">Monitor</text>
+  <!-- Node 4: Terraform (purple) -->
+  <rect x="573" y="143" width="170" height="40" rx="7" fill="url(#nodeGrad)" stroke="#7C3AED" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="658" y="159" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#A78BFA" font-weight="bold" letter-spacing="0.5">⬡ Terraform</text>
+  <text x="658" y="174" text-anchor="middle" font-family="'Courier New', monospace" font-size="8"  fill="#C4B5FD" letter-spacing="0.5">Infrastructure as Code</text>
 
-  <!-- Animated pulse on center node (S3) -->
-  <circle cx="450" cy="148" r="26" fill="none" stroke="#00D4BD" stroke-width="1" opacity="0">
-    <animate attributeName="r" values="26;38;26" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
-  </circle>
+  <!-- Animated pulse on center (AWS node) -->
+  <rect x="388" y="143" width="143" height="40" rx="7" fill="none" stroke="#F97316" stroke-width="1" opacity="0">
+    <animate attributeName="rx" values="7;14;7" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Top animated bar -->
+  <rect x="200" y="38" width="500" height="1.5" fill="url(#lineGrad)" rx="1">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Superscript label -->
+  <text x="450" y="68" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace"
+        font-size="11" font-weight="bold"
+        fill="#2D6A4F" letter-spacing="8">COMPLETE INFRASTRUCTURE MASTERY</text>
 
   <!-- Main title -->
-  <text x="450" y="52" font-family="monospace" font-size="32" font-weight="bold" fill="url(#orangeTeal)" text-anchor="middle" filter="url(#softglow)">AWS Complete Mastery</text>
+  <text x="450" y="128" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace"
+        font-size="40" font-weight="bold"
+        fill="url(#titleGrad)" filter="url(#softglow)" letter-spacing="2">Linux · Bash · AWS</text>
+
+  <!-- Bottom accent -->
+  <line x1="50" y1="232" x2="850" y2="232" stroke="url(#lineGrad)" stroke-width="1.5" opacity="0.5"/>
 
   <!-- Subtitle -->
-  <text x="450" y="80" font-family="monospace" font-size="13" fill="#FFB84D" text-anchor="middle" opacity="0.9">Cloud Infrastructure · Services · Architecture · Certification</text>
-
-  <!-- Bottom accent line -->
-  <line x1="50" y1="195" x2="850" y2="195" stroke="url(#orangeTeal)" stroke-width="2" opacity="0.6"/>
+  <text x="450" y="222" text-anchor="middle"
+        font-family="'Courier New', Courier, monospace"
+        font-size="10" fill="#1A4731" letter-spacing="4">TERRAFORM  ·  BEGINNER TO PRODUCTION</text>
 </svg>

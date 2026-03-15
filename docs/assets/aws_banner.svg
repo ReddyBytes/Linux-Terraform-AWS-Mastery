@@ -1,0 +1,111 @@
+<svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" width="900" height="240">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   style="stop-color:#0d0c0a"/>
+      <stop offset="50%"  style="stop-color:#1a150a"/>
+      <stop offset="100%" style="stop-color:#0d0c0a"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#FF9900"/>
+      <stop offset="50%"  style="stop-color:#FFB84D"/>
+      <stop offset="100%" style="stop-color:#F97316"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#FF9900;stop-opacity:0"/>
+      <stop offset="30%"  style="stop-color:#FFB84D"/>
+      <stop offset="70%"  style="stop-color:#F97316"/>
+      <stop offset="100%" style="stop-color:#FF9900;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#1f1708"/>
+      <stop offset="100%" style="stop-color:#0d0c0a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="240" fill="url(#bg)"/>
+
+  <!-- Grid lines -->
+  <line x1="0" y1="40"  x2="900" y2="40"  stroke="#FF9900" stroke-width="0.2" stroke-dasharray="4,8" opacity="0.12"/>
+  <line x1="0" y1="80"  x2="900" y2="80"  stroke="#FF9900" stroke-width="0.2" stroke-dasharray="4,8" opacity="0.12"/>
+  <line x1="0" y1="120" x2="900" y2="120" stroke="#FF9900" stroke-width="0.2" stroke-dasharray="4,8" opacity="0.12"/>
+  <line x1="0" y1="160" x2="900" y2="160" stroke="#FF9900" stroke-width="0.2" stroke-dasharray="4,8" opacity="0.12"/>
+  <line x1="0" y1="200" x2="900" y2="200" stroke="#FF9900" stroke-width="0.2" stroke-dasharray="4,8" opacity="0.08"/>
+
+  <!-- Pipeline connector -->
+  <line x1="90" y1="163" x2="810" y2="163" stroke="url(#lineGrad)" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Arrow connectors -->
+  <line x1="160" y1="163" x2="195" y2="163" stroke="#FFB84D" stroke-width="1.5" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="195,159 203,163 195,167" fill="#FFB84D" opacity="0.85"/>
+
+  <line x1="325" y1="163" x2="360" y2="163" stroke="#FF9900" stroke-width="1.5" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.4s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="360,159 368,163 360,167" fill="#FF9900" opacity="0.85"/>
+
+  <line x1="495" y1="163" x2="530" y2="163" stroke="#F97316" stroke-width="1.5" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.8s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="530,159 538,163 530,167" fill="#F97316" opacity="0.85"/>
+
+  <line x1="660" y1="163" x2="695" y2="163" stroke="#FFB84D" stroke-width="1.5" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="1.2s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="695,159 703,163 695,167" fill="#FFB84D" opacity="0.85"/>
+
+  <!-- Node: IAM -->
+  <circle cx="120" cy="163" r="30" fill="url(#nodeGrad)" stroke="#FF9900" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="120" y="158" font-family="monospace" font-size="9" fill="#FF9900" text-anchor="middle" font-weight="bold">IAM</text>
+  <text x="120" y="171" font-family="monospace" font-size="7" fill="#FFB84D" text-anchor="middle">Security</text>
+
+  <!-- Node: EC2 -->
+  <circle cx="228" cy="163" r="30" fill="url(#nodeGrad)" stroke="#FF9900" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="228" y="158" font-family="monospace" font-size="9" fill="#FF9900" text-anchor="middle" font-weight="bold">EC2</text>
+  <text x="228" y="171" font-family="monospace" font-size="7" fill="#FFB84D" text-anchor="middle">Compute</text>
+
+  <!-- Node: VPC -->
+  <circle cx="395" cy="163" r="30" fill="url(#nodeGrad)" stroke="#FFB84D" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="395" y="158" font-family="monospace" font-size="9" fill="#FFB84D" text-anchor="middle" font-weight="bold">VPC</text>
+  <text x="395" y="171" font-family="monospace" font-size="7" fill="#FF9900" text-anchor="middle">Network</text>
+
+  <!-- Node: S3 / Lambda (pulse) -->
+  <circle cx="562" cy="163" r="30" fill="url(#nodeGrad)" stroke="#F97316" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="562" y="158" font-family="monospace" font-size="9" fill="#F97316" text-anchor="middle" font-weight="bold">λ / S3</text>
+  <text x="562" y="171" font-family="monospace" font-size="7" fill="#FB923C" text-anchor="middle">Serverless</text>
+  <circle cx="562" cy="163" r="30" fill="none" stroke="#F97316" stroke-width="1" opacity="0">
+    <animate attributeName="r" values="30;42;30" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Node: RDS -->
+  <circle cx="727" cy="163" r="30" fill="url(#nodeGrad)" stroke="#F97316" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="727" y="158" font-family="monospace" font-size="9" fill="#FB923C" text-anchor="middle" font-weight="bold">RDS</text>
+  <text x="727" y="171" font-family="monospace" font-size="7" fill="#FB923C" text-anchor="middle">Database</text>
+
+  <!-- Node: CloudWatch -->
+  <circle cx="782" cy="163" r="28" fill="url(#nodeGrad)" stroke="#FF9900" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="782" y="158" font-family="monospace" font-size="8" fill="#FF9900" text-anchor="middle" font-weight="bold">CW</text>
+  <text x="782" y="171" font-family="monospace" font-size="7" fill="#FFB84D" text-anchor="middle">Monitor</text>
+
+  <!-- Top bar -->
+  <rect x="200" y="38" width="500" height="1.5" fill="url(#lineGrad)" rx="1">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/>
+  </rect>
+
+  <text x="450" y="68" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" font-weight="bold" fill="#7C2D12" letter-spacing="8">CLOUD INFRASTRUCTURE · SERVICES · ARCHITECTURE</text>
+
+  <text x="450" y="128" text-anchor="middle" font-family="'Courier New', monospace" font-size="52" font-weight="bold" fill="url(#titleGrad)" filter="url(#softglow)" letter-spacing="2">AWS MASTERY</text>
+
+  <line x1="50" y1="232" x2="850" y2="232" stroke="url(#lineGrad)" stroke-width="1.5" opacity="0.5"/>
+  <text x="450" y="222" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#7C2D12" letter-spacing="4">EC2  ·  S3  ·  VPC  ·  LAMBDA  ·  RDS  ·  IAM  ·  BEDROCK</text>
+</svg>
